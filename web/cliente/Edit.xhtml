@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteEditDlg" widgetVar="ClienteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleCliente.EditClienteTitle}">
+            <h:form id="ClienteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_nomeFantasia}" for="nomeFantasia" />
+                        <p:inputText id="nomeFantasia" value="#{clienteController.selected.nomeFantasia}" title="#{bundleCliente.EditClienteTitle_nomeFantasia}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_endereco}" for="endereco" />
+                        <p:inputText id="endereco" value="#{clienteController.selected.endereco}" title="#{bundleCliente.EditClienteTitle_endereco}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_razaoSocial}" for="razaoSocial" />
+                        <p:inputText id="razaoSocial" value="#{clienteController.selected.razaoSocial}" title="#{bundleCliente.EditClienteTitle_razaoSocial}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_cnpjCpf}" for="cnpjCpf" />
+                        <p:inputText id="cnpjCpf" value="#{clienteController.selected.cnpjCpf}" title="#{bundleCliente.EditClienteTitle_cnpjCpf}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_inscricaoEstadual}" for="inscricaoEstadual" />
+                        <p:inputText id="inscricaoEstadual" value="#{clienteController.selected.inscricaoEstadual}" title="#{bundleCliente.EditClienteTitle_inscricaoEstadual}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{clienteController.selected.nome}" title="#{bundleCliente.EditClienteTitle_nome}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_telefone}" for="telefone" />
+                        <p:inputText id="telefone" value="#{clienteController.selected.telefone}" title="#{bundleCliente.EditClienteTitle_telefone}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_cep}" for="cep" />
+                        <p:inputText id="cep" value="#{clienteController.selected.cep}" title="#{bundleCliente.EditClienteTitle_cep}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_pontoReferencia}" for="pontoReferencia" />
+                        <p:inputText id="pontoReferencia" value="#{clienteController.selected.pontoReferencia}" title="#{bundleCliente.EditClienteTitle_pontoReferencia}" />
+                        <p:outputLabel value="#{bundleCliente.EditClienteLabel_contato}" for="contato" />
+                        <p:inputText id="contato" value="#{clienteController.selected.contato}" title="#{bundleCliente.EditClienteTitle_contato}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clienteController.update}" value="#{bundleCliente.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClienteEditDialog');"/>
+                    <p:commandButton value="#{bundleCliente.Cancel}" onclick="ClienteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

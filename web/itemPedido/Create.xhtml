@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundleItemPedido.CreateItemPedidoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundleItemPedido.CreateItemPedidoLabel_produto}" for="produto" />
+                    <h:selectOneMenu id="produto" value="#{itemPedidoController.selected.produto}" title="#{bundleItemPedido.CreateItemPedidoTitle_produto}" >
+                        <f:selectItems value="#{produtoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundleItemPedido.CreateItemPedidoLabel_quantidade}" for="quantidade" />
+                    <h:inputText id="quantidade" value="#{itemPedidoController.selected.quantidade}" title="#{bundleItemPedido.CreateItemPedidoTitle_quantidade}" />
+                    <h:outputLabel value="#{bundleItemPedido.CreateItemPedidoLabel_valorTotal}" for="valorTotal" />
+                    <h:inputText id="valorTotal" value="#{itemPedidoController.selected.valorTotal}" title="#{bundleItemPedido.CreateItemPedidoTitle_valorTotal}" />
+                    <h:outputLabel value="#{bundleItemPedido.CreateItemPedidoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{itemPedidoController.selected.id}" title="#{bundleItemPedido.CreateItemPedidoTitle_id}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{itemPedidoController.create}" value="#{bundleItemPedido.CreateItemPedidoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{itemPedidoController.prepareList}" value="#{bundleItemPedido.CreateItemPedidoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundleItemPedido.CreateItemPedidoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
