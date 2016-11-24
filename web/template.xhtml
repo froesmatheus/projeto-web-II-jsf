@@ -10,31 +10,44 @@
         <title><ui:insert name="title">Ycecoco</ui:insert></title>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
+        <link href="${facesContext.externalContext.requestContextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="${facesContext.externalContext.requestContextPath}/resources/img/favicon.ico" type="image/x-icon" />
     </h:head>
 
     <h:body>
+        <div style="background-color: rgba(300,300,300,0.9); margin-top: 5%; margin-bottom: 5%; padding-top: 2%; padding-bottom: 2%">
+            <p:growl id="growl" life="3000" />
 
-        <p:growl id="growl" life="3000" />
+            <h:form>
+                <p:growl id="messages"/>
+                <div>
+                    <div>
+                        <h:graphicImage style="margin: 10px 7% 10px 10px; float: left" value="/resources/img/logoYce.png" height="100" title="Ycecoco"/>
 
-        <h:form>  
-            <p:growl id="messages"/>
-            
-            <h:graphicImage style="margin-bottom: 10px;" value="/resources/img/logoYce.png" height="100" title="Ycecoco"/>
+                        <nav>
+                            <ul class="fancyNav" style="margin-top: 3%">
+                                <li><h:link value="Inicio" outcome="/index" class="homeIcon" /></li>
+                                <li><h:link value="Pedidos" outcome="/pedido/List" /></li>
+                                <li><h:link value="Clientes" outcome="/cliente/List" /></li>
+                                <li><h:link value="Produtos" outcome="/produto/List" /></li>
+                            </ul>
+                        </nav>
 
-            <p:menubar>
-                <p:menuitem value="Início" icon="ui-icon-home" outcome="/index"/>
-                <p:menuitem value="Pedidos" icon="ui-icon-cart" outcome="/pedido/List" />
-                <p:menuitem value="Clientes" icon="ui-icon-person" outcome="/cliente/List" />
-                <p:menuitem value="Produtos" icon="ui-icon-calculator" outcome="/produto/List" />
-            </p:menubar>
-        </h:form>
-        
-        <br/>
-        <br/>
+                    </div>
+                </div>
+                <!--<p:menubar>
+                    <p:menuitem value="Início" icon="ui-icon-home" outcome="/index"/>
+                    <p:menuitem value="Pedidos" icon="ui-icon-cart" outcome="/pedido/List" />
+                    <p:menuitem value="Clientes" icon="ui-icon-person" outcome="/cliente/List" />
+                    <p:menuitem value="Produtos" icon="ui-icon-calculator" outcome="/produto/List" />
+                </p:menubar>-->
+            </h:form>
 
-        <ui:insert name="body"/>
+            <br/>
+            <br/>
 
-
+            <ui:insert name="body"/>
+        </div>
     </h:body>
 
 </html>
